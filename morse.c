@@ -28,11 +28,10 @@ int main() {
     char updated_text[1000 * MAX_LENGTH + 1] = "";
 
     allInsert();
-    //display();
 
     for (int i = 0; i < length-1; i++) {
         int hash_index = hashCode(text[i]);
-        char code[MAX_LENGTH];
+        char code[MAX_LENGTH+1];
         strcpy(code, table[hash_index]->value);
         strcat(updated_text, code);
     }
@@ -59,20 +58,6 @@ void insert(char key, char *value) {
       ++hashIndex;
    }
    table[hashIndex] = item;
-}
-
-// to print the hash table
-void display() {
-   int i = 0;
-
-   for (i = 0; i < 256; i++) {
-      if(table[i] != NULL)
-         printf(" (%c,%s) \n", table[i]->key, table[i]->value);
-      else
-         printf(" ~~ \n");
-   }
-
-   printf("\n");
 }
 
 void allInsert() {
@@ -113,4 +98,18 @@ void allInsert() {
     insert('9', "----.");
     insert('0', "-----");
     insert(' ', "/");
+    insert('?', "..--..");
+    insert(',', "--..--");
+    insert(':', "---...");
+    insert('-', "-....-");
+    insert('+', ".-.-.");
+    insert('=', "-...-");
+    insert('@', ".--.-.");
+    insert('(', "-.--.");
+    insert(')', "-.--.-");
+    insert('_', "..--.-");  // underscore
+    insert(';', "-.-.-.");
+    insert('\'', ".----."); // apostrophe
+    insert('/', "-..-.");
+    insert('.', ".-.-.-");  //full stop or period
 }
